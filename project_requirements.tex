@@ -1,0 +1,92 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{hyperref}
+
+\begin{document}
+
+\title{Project Requirements}
+\author{ Tyler Burkett \\
+	\and
+	Kelsey Cole
+	\and
+	Cameron Lydon
+	}
+\date{\today}
+\maketitle
+
+\section*{Abbreviations and Related Terms}
+\begin{itemize}
+\item ABET - Accreditation Board for Engineering and Technology
+\item DSU - Dean of Undergraduate Studies
+\item SLO - Student Learning Outcomes
+\item ADA - Americans with Disabilities Act
+\item FERPA - Family Education Rights and Privacy Act 
+\item PPRA - Protection of Pupil Rights Amendment
+\end{itemize}
+
+% \
+\section*{Business Requirements}
+\begin{enumerate}
+% \item The client wants
+\item The client wants to allow professors to be able to upload SLO evaluations
+\item The client wants to increase the number of professors reporting SLO evaluations
+\item The client wants to disseminate guides and information documents about SLO evaluations to professors
+\item The client wants to emphasize the importance of the SLO evaluations
+\item\label{item:b5} The client wants to correct false assertions about SLO evaluations 
+	\begin{enumerate}
+	\item The client wants to emphasize that SLO evaluations are not grades
+	\item The client wants to emphasize that SLO evaluations are not weighted (i.e. meeting is expected, not exceeding)
+	\item The client wants to emphasize that SLO evaluations are not evaluations of professors
+	\end{enumerate}
+\item The client wants to make maintaining and creating documentation for ABET accreditation easier
+\item The client will need compliance with federal regulations including but not limited to
+	\begin{enumerate}
+	\item ADA
+	\item FERPA
+	\item PPRA
+	\end{enumerate}
+\end{enumerate}
+
+\section*{Functional Requirements}
+\begin{enumerate}
+% \item The system shall
+\item The system shall create a form for professors to input information for SLO evaluations
+\item The system shall output a zip file for each class portfolio after completion of SLO evaluations
+\item The system shall allow the DUS to assign SLOs to professors
+\item The system shall mark course portfolios as read-only after a set period of time
+\item The system shall display messages about SLO evaluation information as described in business requirements \hyperref[item:b5]{\#5a - 5c}
+\item The system shall verify that the correct number of artifacts has been uploaded for each SLO
+\item The system shall display messages to confirm successful entry of SLO evaluations 
+\item the system shall include a link to user documentation about the system
+\end{enumerate}
+
+\section*{Non-Functional Requirements}
+\begin{enumerate}
+% \item The system should 
+\item The system should include all of the following in the output zip file:
+	\begin{enumerate}
+	\item a class score (computed as the average of the student learning outcome scores)
+	\item For each student learning outcome
+		\begin{enumerate}
+		\item nameless student submissions with rubric and evaluation
+		\item number of students in each category (exceeds, meets, partially, not)
+		\item an artifact score (computed as the \% of students who meet or exceeded the expectations for that artifact)
+		\item a student learning outcome score (computed as the average of the three artifact scores)
+		\end{enumerate}
+	\end{enumerate}
+\item The system should not ask for any personal identifying information during SLO evaluation entry
+\item The system should not include any personal identifying information in the zip output
+\item The system should contain at least three evaluations per SLO before output can be given
+\item The system should randomly select a group of students for student evaluations with a maximum size of 20\% or 10 students for SLO evaluations
+\item The system should handle login through linkblue
+\end{enumerate}
+
+\section*{User Assumptions}
+\begin{itemize}
+\item The project will use a MySQL database
+\item An artifact is a single evaluation of a single outcome 
+\item Wait period for marking course portfolios as read-only is defined/adjusted by an administrator user of the system 
+\item Professors do not have to do random selection of students for SLO evaluations 
+\item Professors do not have to manually enter SLO evaluation descriptions 
+\end{itemize}
+
+\end{document}
