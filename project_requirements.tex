@@ -27,66 +27,95 @@
 \section*{Business Requirements}
 \begin{enumerate}
 % \item The client wants
-\item The client wants to allow professors to be able to upload SLO evaluations
-\item The client wants to increase the number of professors reporting SLO evaluations
-\item The client wants to disseminate guides and information documents about SLO evaluations to professors
-\item The client wants to emphasize the importance of the SLO evaluations
-\item\label{item:b5} The client wants to correct false assertions about SLO evaluations 
+\item [BR1.] The client wants to allow professors to be able to upload SLO evaluations
+\item [BR2.] The client wants to increase the number of professors reporting SLO evaluations
+\item [BR3.] The client wants to disseminate guides and informational documents about SLO evaluations to professors
+\item [BR4.] The client wants to correct false assertions about SLO evaluations 
 	\begin{enumerate}
 	\item The client wants to emphasize that SLO evaluations are not grades
 	\item The client wants to emphasize that SLO evaluations are not weighted (i.e. meeting is expected, not exceeding)
 	\item The client wants to emphasize that SLO evaluations are not evaluations of professors
 	\end{enumerate}
-\item The client wants to make maintaining and creating documentation for ABET accreditation easier
-\item The client will need compliance with federal regulations including but not limited to
+\item [BR5.] The client wants to make maintaining and creating documentation for ABET accreditation more streamlined
+\item [BR6.] The client wants to meet ADA compliance to ensure the system is accessible to all users
+\item [BR7.] The client wants to meet FERPA compliance to ensure the system protects sensitive information
+\item [BR8.] The client wants to meet PPRA compliance to ensure the system protects sensitive information
+\item [BR9.] The client wants the output file to contain a class score
+\item [BR10.] The client wants the output file to contain all of the neccessary student learning outcome information
 	\begin{enumerate}
-	\item ADA
-	\item FERPA
-	\item PPRA
+		\item Nameless student submissions with rubric and evaluation
+		\item Number of students in each category (exceeds, meets, partially, not)
+		\item An artifact score (computed as the \% of students who meet or exceeded the expectations for that artifact)
+		\item A student learning outcome score (computed as the average of the three artifact scores)
 	\end{enumerate}
 \end{enumerate}
 
 \section*{Functional Requirements}
 \begin{enumerate}
 % \item The system shall
-\item The system shall create a form for professors to input information for SLO evaluations
-\item The system shall output a zip file for each class portfolio after completion of SLO evaluations
-\item The system shall allow the DUS to assign SLOs to professors
-\item The system shall mark course portfolios as read-only after a set period of time
-\item The system shall display messages about SLO evaluation information as described in business requirements \hyperref[item:b5]{\#5a - 5c}
-\item The system shall verify that the correct number of artifacts has been uploaded for each SLO
-\item The system shall display messages to confirm successful entry of SLO evaluations 
-\item the system shall include a link to user documentation about the system
+\item [FR1.] The system shall create a form for professors to input information for SLO evaluations
+\item [FR2.] The system shall output a zip file for each class portfolio after completion of SLO evaluations
+\item [FR3.] The system shall allow the DUS to assign SLOs to professors
+\item [FR4.] The system shall mark course portfolios as read-only after a set period of time
+\item [FR5.] The system shall display messages about SLO evaluation information as described in business requirements {\#4a - 4c}
+\item [FR6.] The system shall verify that the correct number of artifacts has been uploaded for each SLO
+\item [FR7.] The system shall display messages to confirm successful entry of SLO evaluations 
+\item [FR8.] The system shall include a link to user documentation about the system
+\item [FR9.] The system shall display guides and informational documents about SLO evalutaions
+\item [FR10.] The system should output single zip file
 \end{enumerate}
 
 \section*{Non-Functional Requirements}
 \begin{enumerate}
 % \item The system should 
-\item The system should include all of the following in the output zip file:
-	\begin{enumerate}
-	\item a class score (computed as the average of the student learning outcome scores)
-	\item For each student learning outcome
-		\begin{enumerate}
-		\item nameless student submissions with rubric and evaluation
-		\item number of students in each category (exceeds, meets, partially, not)
-		\item an artifact score (computed as the \% of students who meet or exceeded the expectations for that artifact)
-		\item a student learning outcome score (computed as the average of the three artifact scores)
-		\end{enumerate}
-	\end{enumerate}
-\item The system should not ask for any personal identifying information during SLO evaluation entry
-\item The system should not include any personal identifying information in the zip output
-\item The system should contain at least three evaluations per SLO before output can be given
-\item The system should randomly select a group of students for student evaluations with a maximum size of 20\% or 10 students for SLO evaluations
-\item The system should handle login through linkblue
+\item [NFR1.] The system should not ask for any personal identifying information during SLO evaluation entry
+\item [NFR2.] The system should not include any personal identifying information in the zip output
+\item [NFR3.] The system should contain at least three evaluations per SLO before output can be given
+\item [NFR4.] The system should randomly select a group of students for student evaluations with a maximum size of 20\% or 10 students for SLO evaluations
+\item [NFR5.] The system should handle login through linkblue
+\item [NFR6.] The system will use a MySQL database
+\item [NFR7.] The system will use text that has a color contrast ratio of 4.5 or greater to the background
+\item [NFR8.] The system will specify alternate text for images
+\item [NFR9.] The system will allow clickable elements to be accessible by a keyboard
 \end{enumerate}
 
 \section*{User Assumptions}
 \begin{itemize}
-\item The project will use a MySQL database
 \item An artifact is a single evaluation of a single outcome 
 \item Wait period for marking course portfolios as read-only is defined/adjusted by an administrator user of the system 
 \item Professors do not have to do random selection of students for SLO evaluations 
 \item Professors do not have to manually enter SLO evaluation descriptions 
 \end{itemize}
+
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{ |c|c|c| }
+ \hline
+ \multicolumn{3}{|c|}{Requirements Traceability Matrix} \\
+ \hline
+ Business Requirements & Functional Requirements & Non-Functional Requirements\\
+ \hline
+ BR1 & FR1 & \\
+ BR2 & FR5 & \\
+ BR3 & FR5 & \\
+     & FR8 & \\
+     & FR9 & \\
+ BR4 & FR5 & \\
+ BR5 & FR1 & NFR3\\
+     & FR2 & NFR4\\
+     & FR3 & \\
+     & FR6 & \\
+     & FR7 & \\
+ BR6 &     & NFR7\\
+     &     & NFR8\\
+     &     & NFR9\\
+ BR7 &     & NFR1\\
+     &     & NFR2\\
+ BR8 &     & NFR1\\
+     &     & NFR2\\
+ BR9 & FR10 & \\
+ BR10 & FR10 & \\
+ \hline
+\end{tabular}
 
 \end{document}
