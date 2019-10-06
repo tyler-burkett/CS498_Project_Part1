@@ -1,5 +1,6 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage{hyperref}
+\usepackage{enumitem}
 
 \begin{document}
 
@@ -25,23 +26,23 @@
 
 % \
 \section*{Business Requirements}
-\begin{enumerate}
+\begin{enumerate}[label=BR\arabic*., ref=BR\arabic*]
 % \item The client wants
-\item [BR1.] The client wants to allow professors to be able to upload SLO evaluations
-\item [BR2.] The client wants to increase the number of professors reporting SLO evaluations
-\item [BR3.] The client wants to disseminate guides and informational documents about SLO evaluations to professors
-\item [BR4.] The client wants to correct false assertions about SLO evaluations 
+\item The client wants to allow professors to be able to upload SLO evaluation information to a website
+\item The client wants to increase the number of professors reporting SLO evaluations
+\item The client wants to disseminate guides and informational documents about SLO evaluations to professors
+\item The client wants to correct false assertions about SLO evaluations 
 	\begin{enumerate}
 	\item The client wants to emphasize that SLO evaluations are not grades
-	\item The client wants to emphasize that SLO evaluations are not weighted (i.e. meeting is expected, not exceeding)
+	\item The client wants to emphasize that SLO evaluations are not weighted (i.e. meeting---not exceeding---an SLO is expected)
 	\item The client wants to emphasize that SLO evaluations are not evaluations of professors
 	\end{enumerate}
-\item [BR5.] The client wants to make maintaining and creating documentation for ABET accreditation more streamlined
-\item [BR6.] The client wants to meet ADA compliance to ensure the system is accessible to all users
-\item [BR7.] The client wants to meet FERPA compliance to ensure the system protects sensitive information
-\item [BR8.] The client wants to meet PPRA compliance to ensure the system protects sensitive information
-\item [BR9.] The client wants the output file to contain a class score
-\item [BR10.] The client wants the output file to contain all of the neccessary student learning outcome information
+\item The client wants to make maintaining and creating documentation for ABET accreditation more streamlined
+\item The client wants to meet ADA compliance to ensure the system is accessible to all users
+\item The client wants to meet FERPA compliance to ensure the system protects sensitive information
+\item The client wants to meet PPRA compliance to ensure the system protects sensitive information
+\item The client wants to have a class portfolio that contains a class score for the SLO evaluations (computed as the average of the student learning outcome scores)
+\item The client wants to have a class portfolio file that contains all of the necessary student learning outcome information
 	\begin{enumerate}
 		\item Nameless student submissions with rubric and evaluation
 		\item Number of students in each category (exceeds, meets, partially, not)
@@ -51,40 +52,43 @@
 \end{enumerate}
 
 \section*{Functional Requirements}
-\begin{enumerate}
+\begin{enumerate}[label=FR\arabic*.]
 % \item The system shall
-\item [FR1.] The system shall create a form for professors to input information for SLO evaluations
-\item [FR2.] The system shall output a zip file for each class portfolio after completion of SLO evaluations
-\item [FR3.] The system shall allow the DUS to assign SLOs to professors
-\item [FR4.] The system shall mark course portfolios as read-only after a set period of time
-\item [FR5.] The system shall display messages about SLO evaluation information as described in business requirements {\#4a - 4c}
-\item [FR6.] The system shall verify that the correct number of artifacts has been uploaded for each SLO
-\item [FR7.] The system shall display messages to confirm successful entry of SLO evaluations 
-\item [FR8.] The system shall include a link to user documentation about the system
-\item [FR9.] The system shall display guides and informational documents about SLO evalutaions
-\item [FR10.] The system should output single zip file
+\item The system shall create a form for professors to input information for SLO evaluations
+\item The system shall output a zip file for each class portfolio after completion of SLO evaluations
+\item The system shall allow an administrator user to assign SLOs to other users
+\item The system shall mark course portfolios as read-only after a predefined period of time
+\item The system shall display messages about SLO evaluation information as described in business requirements BR4
+\item The system shall verify that the minimum number of artifacts has been uploaded for each SLO
+\item The system shall display messages to confirm successful entry of SLO evaluations 
+\item The system shall include a link to user documentation about the system at all times
+\item The system shall include link for guides and informational documents about SLO evaluations
+\item The system shall compute an artifact score for each artifact  based on the percentage of of students who meet or exceed the expectations of said artifact
+\item The system shall compute a learning outcome score for each set of artifacts based on the average of the artifacts given for a SLO
+\item The system shall compute a class score for a class portfolio based on the average SLO scores
 \end{enumerate}
 
 \section*{Non-Functional Requirements}
-\begin{enumerate}
+\begin{enumerate}[label=NFR\arabic*.]
 % \item The system should 
-\item [NFR1.] The system should not ask for any personal identifying information during SLO evaluation entry
-\item [NFR2.] The system should not include any personal identifying information in the zip output
-\item [NFR3.] The system should contain at least three evaluations per SLO before output can be given
-\item [NFR4.] The system should randomly select a group of students for student evaluations with a maximum size of 20\% or 10 students for SLO evaluations
-\item [NFR5.] The system should handle login through linkblue
-\item [NFR6.] The system will use a MySQL database
-\item [NFR7.] The system will use text that has a color contrast ratio of 4.5 or greater to the background
-\item [NFR8.] The system will specify alternate text for images
-\item [NFR9.] The system will allow clickable elements to be accessible by a keyboard
+\item The system should not ask for any personal identifying information during SLO evaluation entry
+\item The system should not include any personal identifying information in the zip output
+\item The system should contain at least three evaluations per SLO before output can be given
+\item The system should randomly select a group of students for student evaluations with a maximum size of 20\% or 10 students for SLO evaluations
+\item The system should handle login through linkblue
+\item The system will use a MySQL database to store SLO evaluations
+\item The system will use text that has a color contrast ratio of 4.5 or greater to the background
+\item The system will specify alternate text for images
+\item The system will allow clickable elements to be accessible by a keyboard
+\item The system will allow users to upload documents to accompany artifacts in a class portfolio 
 \end{enumerate}
 
 \section*{User Assumptions}
 \begin{itemize}
-\item An artifact is a single evaluation of a single outcome 
+\item An artifact is a single evaluation of a single assignment that the students have been assigned and completed
 \item Wait period for marking course portfolios as read-only is defined/adjusted by an administrator user of the system 
-\item Professors do not have to do random selection of students for SLO evaluations 
-\item Professors do not have to manually enter SLO evaluation descriptions 
+\item Professors do not have to do random selection of students for SLO evaluations
+\item Professors do not have to manually enter SLO evaluation descriptions; an administrator user will input those for the professors to select from
 \end{itemize}
 
 \setlength{\tabcolsep}{10pt}
@@ -96,25 +100,37 @@
  Business Requirements & Functional Requirements & Non-Functional Requirements\\
  \hline
  BR1 & FR1 & \\
+ \hline
  BR2 & FR5 & \\
+ \hline
  BR3 & FR5 & \\
      & FR8 & \\
      & FR9 & \\
+\hline
  BR4 & FR5 & \\
+ \hline
  BR5 & FR1 & NFR3\\
      & FR2 & NFR4\\
      & FR3 & \\
      & FR6 & \\
      & FR7 & \\
+\hline
  BR6 &     & NFR7\\
      &     & NFR8\\
      &     & NFR9\\
+\hline
  BR7 &     & NFR1\\
      &     & NFR2\\
+\hline
  BR8 &     & NFR1\\
      &     & NFR2\\
- BR9 & FR10 & \\
- BR10 & FR10 & \\
+\hline
+ BR9 & FR2 & \\
+      & FR10& \\
+ \hline
+ BR10 & FR2 & NFR10 \\
+      & FR11& \\
+      & FR12& \\
  \hline
 \end{tabular}
 
